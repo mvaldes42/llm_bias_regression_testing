@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --import tsx --env-file=.env src/openai/test.ts"
+    "test": "node --import tsx --env-file=.env src/test.ts"
   },
   "engines": {
     "node": ">=22"

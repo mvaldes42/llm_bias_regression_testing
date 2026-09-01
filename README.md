@@ -105,3 +105,5 @@ Structured output for one example:
 ```
 
 with `answer` constrained to `enum: [ans0, ans1, ans2]` for **that row**. Persist it on the result line as `prediction` (answer text) plus `model`.
+
+Gold label is only for accuracy. target_loc is only for bias.
