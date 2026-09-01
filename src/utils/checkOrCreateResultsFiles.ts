@@ -12,18 +12,8 @@ function checkOrCreateFile({ filePath }: { filePath: string }) {
   }
 }
 
-export function checkOrCreateResultsFiles({ category }: { category: string }) {
-  const currentDirectory = import.meta.dirname
-
-  const resultsPath = path.join(
-    currentDirectory,
-    `../../results/test/${category}_results.jsonl`,
-  )
-  const scorePath = path.join(
-    currentDirectory,
-    `../../results/test/final_results_score.jsonl`,
-  )
-  checkOrCreateFile({ filePath: resultsPath })
-  checkOrCreateFile({ filePath: scorePath })
-  return { resultsPath, scorePath }
+export function checkOrCreateResultsFiles({ paths }: { paths: string[] }) {
+  paths.forEach((path) => {
+    checkOrCreateFile({ filePath: path })
+  })
 }

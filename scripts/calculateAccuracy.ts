@@ -1,43 +1,36 @@
-import { DataType, PredictionType } from '../src/types.ts'
+import { CombinedDataType } from '../src/types.ts'
 
-function calculateAccuracy(
-  data: DataType[],
-  predictions: PredictionType[],
-): number {
+function calculateAccuracy(combinedData: CombinedDataType[]): number {
   let totalScore = 0
-  for (const prediction of predictions) {
-    const matchedData = data.find(
-      (d) => d.example_id === parseInt(prediction.exampleId),
-    )
-    if (matchedData && matchedData.label === prediction.value) {
+  for (const data of combinedData) {
+    if (data.prediction && data.prediction.value === data.label) {
       totalScore++
     }
   }
-  return totalScore / predictions.length
+  return totalScore / combinedData.length
 }
 
 // accuracy = Share of rows with `pred_label == label`.
 // Split by context_condition so you get acc_ambig and acc_disambig
 export function calculateAccuracyScore({
-  data,
-  predictions,
+  combinedData,
 }: {
-  data: DataType[]
-  predictions: PredictionType[]
+  combinedData: CombinedDataType[]
 }): {
   accAmbig: number
   accDisambig: number
+  overallAccuracy: number
 } {
   const accAmbig = calculateAccuracy(
-    data,
-    predictions.filter((p) => p.contextCondition === 'ambig'),
+    combinedData.filter((d) => d.context_condition === 'ambig'),
   )
   const accDisambig = calculateAccuracy(
-    data,
-    predictions.filter((p) => p.contextCondition === 'disambig'),
+    combinedData.filter((d) => d.context_condition === 'disambig'),
   )
+  const overallAccuracy = (accAmbig + accDisambig) / 2
   return {
     accAmbig,
     accDisambig,
+    overallAccuracy,
   }
 }

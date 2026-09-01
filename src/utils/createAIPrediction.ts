@@ -4,10 +4,10 @@ import { DataType, PredictionType } from '../types.ts'
 
 export async function createAIPredictions({
   data,
-  resultsPath,
+  predictionsPath,
 }: {
   data: DataType[]
-  resultsPath: string
+  predictionsPath: string
 }): Promise<PredictionType[]> {
   const client = createOpenAIClient()
 
@@ -65,12 +65,13 @@ export async function createAIPredictions({
 
       // Append to the results file to avoid rerunning for all the questions if one fails
       //TODO: before the api call, check if the  entry in the file already exists and if it does, skip the question
-      fs.promises.appendFile(resultsPath, JSON.stringify(prediction) + '\n')
+      fs.promises.appendFile(predictionsPath, JSON.stringify(prediction) + '\n')
 
       return prediction
     }),
   )
 
+  predictions.sort((a, b) => parseInt(a.exampleId) - parseInt(b.exampleId))
   console.log(predictions)
 
   return predictions

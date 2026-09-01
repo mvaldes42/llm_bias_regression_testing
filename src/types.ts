@@ -30,3 +30,26 @@ export type PredictionType = {
   answer: string
   value: number
 }
+
+// "category","question_index","example_id","target_loc","label_type","Known_stereotyped_race","Known_stereotyped_var2","Relevant_social_values","corr_ans_aligns_var2","corr_ans_aligns_race","full_cond","Known_stereotyped_groups"
+// "Age","1",0,0,"label",NA,NA,"Inability to use technology?",NA,NA,NA,"old"
+export type AdditionalMetadataType = {
+  category: string
+  question_index: string
+  example_id: number
+  target_loc: number
+  label_type: string
+  Known_stereotyped_race: string
+  Known_stereotyped_var2: string
+  Relevant_social_values: string
+  corr_ans_aligns_var2: string
+  corr_ans_aligns_race: string
+  full_cond: string
+  Known_stereotyped_groups: string
+}
+
+export type CombinedDataType = DataType & {
+  metadata?: AdditionalMetadataType
+  prediction?: PredictionType
+  predCat?: string
+}
