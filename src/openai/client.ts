@@ -1,8 +1,4 @@
-import OpenAI from "openai"
-
-export function getModel(): string {
-  return process.env.OPENAI_MODEL ?? "gpt-5-nano-2025-08-07"
-}
+import OpenAI from 'openai'
 
 export function createOpenAIClient(): OpenAI {
   return new OpenAI()
@@ -10,20 +6,18 @@ export function createOpenAIClient(): OpenAI {
 
 export async function responsesCall({
   client = new OpenAI(),
-  input = "",
-  options = { model: getModel() },
+  input = '',
 }: {
   client: OpenAI
   input: string
-  options?: { model?: string }
 }): Promise<string> {
   const response = await client.responses.create({
-    model: options.model ?? getModel(),
+    model: 'gpt-5-nano-2025-08-07',
     input,
-    reasoning: { effort: "low" },
+    reasoning: { effort: 'low' },
   })
 
-  if (response.status !== "completed") {
+  if (response.status !== 'completed') {
     throw new Error(
       `Responses API did not complete (status=${response.status}, id=${response.id})`,
     )
