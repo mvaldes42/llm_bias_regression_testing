@@ -96,7 +96,7 @@ Official UnifiedQA dumps ([results/UnifiedQA/preds_Age.jsonl](https://github.com
 
 The scorer maps that string onto `ans0` / `ans1` / `ans2` (they lowercase and trim; see `analysis_scripts/BBQ_calculate_bias_score.R`).
 
-So our OpenAI call should return **one of that row’s three choice texts**, e.g. `"The grandfather"`. Not `0`, not `"a"`, not a free-form sentence.
+So our OpenAI call returns **one of that row’s three choice texts**, e.g. `"The grandfather"`. Not `0`, not `"a"`, not a free-form sentence. This is locked whether we score in R or TypeScript (a TS scorer maps the string onto `ans0`/`ans1`/`ans2` locally).
 
 Structured output for one example:
 

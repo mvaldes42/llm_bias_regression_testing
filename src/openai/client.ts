@@ -6,15 +6,25 @@ export function createOpenAIClient(): OpenAI {
 
 export async function responsesCall({
   client = new OpenAI(),
-  input = '',
+  prompt,
+  schema,
 }: {
   client: OpenAI
-  input: string
+  prompt: string
+  schema: any
 }): Promise<string> {
   const response = await client.responses.create({
     model: 'gpt-5-nano-2025-08-07',
-    input,
+    input: prompt,
     reasoning: { effort: 'low' },
+    text: {
+      format: {
+        type: 'json_schema',
+        name: 'bbq_answer',
+        strict: true,
+        schema,
+      },
+    },
   })
 
   if (response.status !== 'completed') {
