@@ -34,6 +34,10 @@ async function main({ options }: { options: { fromFile?: number } }) {
 
   // TODO: Loop through all the categories
   const currentCategory = 'Age'
+  const currentCategoryDataPath = path.join(
+    currentDirectory,
+    `../data/test/${currentCategory}.jsonl`,
+  )
   let predictions: PredictionType[] | null = null
   const metadata = additionalMetadataData.filter(
     (metadata) => metadata.category === currentCategory,
@@ -45,13 +49,10 @@ async function main({ options }: { options: { fromFile?: number } }) {
 
   const predictionsPath = path.join(
     currentDirectory,
-    `../../results/test/${currentCategory}_predictions.jsonl`,
+    `../results/test/${currentCategory}_predictions.jsonl`,
   )
 
-  const dataString = fs.readFileSync(
-    path.join(import.meta.dirname, `../data/test/${currentCategory}.jsonl`),
-    'utf8',
-  )
+  const dataString = fs.readFileSync(currentCategoryDataPath, 'utf8')
   const data: DataType[] = dataString
     .split('\n')
     .map((line) => JSON.parse(line))
@@ -137,4 +138,4 @@ async function main({ options }: { options: { fromFile?: number } }) {
   console.log(`Ambiguous Bias Score for ${currentCategory}: ${s_amb}`)
 }
 
-main({ options: { fromFile: 1 } })
+main({ options: { fromFile: 0 } })
