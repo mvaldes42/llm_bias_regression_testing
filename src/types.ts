@@ -53,3 +53,13 @@ export type CombinedDataType = DataType & {
   prediction?: PredictionType
   predCat?: string
 }
+
+export type FinalScoreType = {
+  accAmbig: number
+  accDisambig: number
+  accTotal: number
+  scoreAmbig: number | null
+  scoreDisambig: number | null
+}
+
+export const CATEGORIES: string[] = ['Age', 'Gender_identity', 'Race_ethnicity']

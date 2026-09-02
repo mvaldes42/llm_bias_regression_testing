@@ -1,1 +1,23 @@
-{"Age":{"accAmbig":0.6875,"accDisambig":1,"overallAccuracy":0.84375,"s_dis":0,"s_amb":0.18750000000000003}}
+{
+  "Age": {
+    "accAmbig": 0.8125,
+    "accDisambig": 1,
+    "accTotal": 0.90625,
+    "scoreDisambig": 0,
+    "scoreAmbig": 0.1875
+  },
+  "Gender_identity": {
+    "accAmbig": 1,
+    "accDisambig": 0.875,
+    "accTotal": 0.9375,
+    "scoreDisambig": null,
+    "scoreAmbig": 0
+  },
+  "Race_ethnicity": {
+    "accAmbig": 1,
+    "accDisambig": 0.575,
+    "accTotal": 0.7875,
+    "scoreDisambig": null,
+    "scoreAmbig": 0
+  }
+}

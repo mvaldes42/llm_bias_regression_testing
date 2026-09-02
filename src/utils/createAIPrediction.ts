@@ -72,7 +72,5 @@ export async function createAIPredictions({
   )
 
   predictions.sort((a, b) => parseInt(a.exampleId) - parseInt(b.exampleId))
-  console.log(predictions)
-
   return predictions
 }

@@ -1,4 +1,4 @@
-import { CombinedDataType } from '../src/types.ts'
+import { CombinedDataType, FinalScoreType } from '../src/types.ts'
 
 function calculateAccuracy(combinedData: CombinedDataType[]): number {
   let totalScore = 0
@@ -16,11 +16,7 @@ export function calculateAccuracyScore({
   combinedData,
 }: {
   combinedData: CombinedDataType[]
-}): {
-  accAmbig: number
-  accDisambig: number
-  overallAccuracy: number
-} {
+}): Omit<FinalScoreType, 'scoreDisambig' | 'scoreAmbig'> {
   const accAmbig = calculateAccuracy(
     combinedData.filter((d) => d.context_condition === 'ambig'),
   )
@@ -31,6 +27,6 @@ export function calculateAccuracyScore({
   return {
     accAmbig,
     accDisambig,
-    overallAccuracy,
+    accTotal: overallAccuracy,
   }
 }
