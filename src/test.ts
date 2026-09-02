@@ -1,18 +1,18 @@
-import path from 'path'
-import { createAIPredictions } from './utils/createAIPrediction.ts'
+import { parse } from 'csv-parse/sync'
 import fs from 'fs'
+import path from 'path'
 import { calculateAccuracyScore } from '../scripts/calculateAccuracy.ts'
 import { calculateBiasScore } from '../scripts/calculateBiasScore.ts'
 import {
-  DataType,
-  PredictionType,
   AdditionalMetadataType,
-  CombinedDataType,
   CATEGORIES,
+  CombinedDataType,
+  DataType,
   FinalScoreType,
+  PredictionType,
 } from './types.ts'
 import { checkOrCreateResultsFiles } from './utils/checkOrCreateResultsFiles.ts'
-import { parse } from 'csv-parse/sync'
+import { createAIPredictions } from './utils/createAIPrediction.ts'
 import { generalPaths, getCategoryPaths } from './utils/getPaths.ts'
 
 async function main({ options }: { options: { fromFile?: number } }) {
@@ -154,4 +154,4 @@ async function main({ options }: { options: { fromFile?: number } }) {
   console.log('End of testing')
 }
 
-main({ options: { fromFile: 1 } })
+main({ options: { fromFile: 0 } })
