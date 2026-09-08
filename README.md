@@ -13,10 +13,10 @@ A **CI eval**. It runs [BBQ](https://github.com/nyu-mll/BBQ) (Parrish et al., Fi
 
 ```sh
 cp .env.example .env   # OPENAI_API_KEY
-npm test               # src/test.ts → results/test/
+npm test               # MODE=test PROMPT_BIAS=neutral → results/test_neutral/
 ```
 
-Node ≥22, model `gpt-5-nano-2025-08-07`. `npm test` hits the API (`fromFile: 0` in `src/test.ts`); set `fromFile: 1` to rescore saved predictions. Samples: Age 32, Gender_identity 32, Race_ethnicity 161 — one-template smoke tests, not paper-grade scores.
+Node ≥22, model `gpt-5-nano-2025-08-07`. `npm test` hits the API (`FROM_FILE=false`); `npm run test:from-file` rescores saved predictions. Samples: Age 32, Gender_identity 32, Race_ethnicity 161 — one-template smoke tests, not paper-grade scores.
 
 ## BBQ in one page
 
@@ -72,25 +72,25 @@ Smoke test with a worsen prompt and a reduce prompt, to check that a prompt can 
 
 | Scenario  | Ambig acc. | Disambig acc. | Overall | Disambig bias | Ambig bias |
 | --------- | ---------- | ------------- | ------- | ------------- | ---------- |
-| No prompt | 0.75       | 1             | 0.875   | 0             | 0.25       |
-| Worsen    | 0 ✓        | 1 ✓           | 0.5 ✓   | 0 ✓           | 1 ✓        |
+| No prompt | 0.75       | 0.9375        | 0.84375 | −0.125        | 0.25       |
+| Worsen    | 0.0625 ✓   | 0.9375 ✓      | 0.5 ✓   | 0.125 ✓       | 0.9375 ✓   |
 | Reduce    | 1 ✓        | 1 ✓           | 1 ✓     | 0 ✓           | 0 ✓        |
 
 **Gender_identity**
 
-| Scenario  | Ambig acc. | Disambig acc. | Overall  | Disambig bias | Ambig bias |
-| --------- | ---------- | ------------- | -------- | ------------- | ---------- |
-| No prompt | 1          | 0.9375        | 0.96875  | −0.067        | 0          |
-| Worsen    | 0.4375 ✓   | 0.8125 ✗      | 0.625 ✓  | 0.2 ✓         | 0.5625 ✓   |
-| Reduce    | 1 ✓        | 0.625 ✗       | 0.8125 ✗ | −0.2 ✗        | 0 ✓        |
+| Scenario  | Ambig acc. | Disambig acc. | Overall   | Disambig bias | Ambig bias |
+| --------- | ---------- | ------------- | --------- | ------------- | ---------- |
+| No prompt | 1          | 0.9375        | 0.96875   | −0.067        | 0          |
+| Worsen    | 0.5 ✓      | 0.625 ✗       | 0.5625 ✓  | 0.091 ✓       | 0.5 ✓      |
+| Reduce    | 1 ✓        | 0.6875 ✗      | 0.84375 ✗ | 0.091 ✓       | 0 ✓        |
 
 **Race_ethnicity**
 
-| Scenario  | Ambig acc. | Disambig acc. | Overall   | Disambig bias | Ambig bias |
-| --------- | ---------- | ------------- | --------- | ------------- | ---------- |
-| No prompt | 1          | 0.5625        | 0.78125   | −0.111        | 0          |
-| Worsen    | 0.889 ✓    | 0.575 ✓       | 0.732 ✓   | −0.043 ✓      | 0.111 ✓    |
-| Reduce    | 1 ✓        | 0.4375 ✗      | 0.71875 ✗ | −0.029 ✓      | 0 ✓        |
+| Scenario  | Ambig acc. | Disambig acc. | Overall | Disambig bias | Ambig bias |
+| --------- | ---------- | ------------- | ------- | ------------- | ---------- |
+| No prompt | 1          | 0.525         | 0.7625  | 0.143         | 0          |
+| Worsen    | 0.951 ✓    | 0.575 ✓       | 0.763 ✗ | 0.064 ✓       | 0.049 ✓    |
+| Reduce    | 1 ✓        | 0.4875 ✓      | 0.744 ✗ | −0.026 ✓      | 0 ✓        |
 
 **Warning:** a “fairer” prompt can zero ambig bias by refusing more often, and a “worse” prompt can still override the extra sentence — **do not treat ambig bias near 0 as a pass if the model stopped following the evidence.**
 

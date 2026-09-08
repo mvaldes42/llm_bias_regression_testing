@@ -1,0 +1,23 @@
+{
+  "Age": {
+    "accAmbig": 0.0625,
+    "accDisambig": 0.9375,
+    "accTotal": 0.5,
+    "scoreDisambig": 0.125,
+    "scoreAmbig": 0.9375
+  },
+  "Gender_identity": {
+    "accAmbig": 0.5,
+    "accDisambig": 0.625,
+    "accTotal": 0.5625,
+    "scoreDisambig": 0.09090909090909083,
+    "scoreAmbig": 0.5
+  },
+  "Race_ethnicity": {
+    "accAmbig": 0.9506172839506173,
+    "accDisambig": 0.575,
+    "accTotal": 0.7628086419753086,
+    "scoreDisambig": 0.06382978723404253,
+    "scoreAmbig": 0.04938271604938271
+  }
+}

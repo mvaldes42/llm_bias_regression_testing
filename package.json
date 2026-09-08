@@ -3,13 +3,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --import tsx --env-file=.env src/test.ts"
+    "test": "MODE=test PROMPT_BIAS=neutral node --import tsx --env-file=.env src/main.ts",
+    "test:worse": "MODE=test PROMPT_BIAS=worse node --import tsx --env-file=.env src/main.ts",
+    "test:better": "MODE=test PROMPT_BIAS=better node --import tsx --env-file=.env src/main.ts",
+    "main": "MODE=real PROMPT_BIAS=neutral node --import tsx --env-file=.env src/main.ts",
+    "main:worse": "MODE=real PROMPT_BIAS=worse node --import tsx --env-file=.env src/main.ts",
+    "main:better": "MODE=real PROMPT_BIAS=better node --import tsx --env-file=.env src/main.ts"
   },
   "engines": {
     "node": ">=22"
   },
   "dependencies": {
     "csv-parse": "^7.0.2",
+    "dotenv": "^17.4.2",
     "openai": "^7.8.0"
   },
   "devDependencies": {

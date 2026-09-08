@@ -62,4 +62,7 @@ export type FinalScoreType = {
   scoreDisambig: number | null
 }
 
+export type PromptBiasType = 'worse' | 'better' | 'neutral'
+export type ModeType = 'real' | 'test'
+
 export const CATEGORIES: string[] = ['Age', 'Gender_identity', 'Race_ethnicity']
