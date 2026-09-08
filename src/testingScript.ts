@@ -1,6 +1,5 @@
 import { parse } from 'csv-parse/sync'
 import fs from 'fs'
-import OpenAI from 'openai'
 import path from 'path'
 import { calculateAccuracyScore } from '../scripts/calculateAccuracy.ts'
 import { calculateBiasScore } from '../scripts/calculateBiasScore.ts'
@@ -29,8 +28,6 @@ export async function testingScript({
   mode: ModeType
   promptBias: PromptBiasType
 }) {
-  const openai = new OpenAI()
-
   const currentDirectory = import.meta.dirname
   const finalScores: Record<string, FinalScoreType> = {}
   const outputDir =
@@ -49,6 +46,15 @@ export async function testingScript({
     })
     vectorStoreId = vectorStoreIdTemp
     filesIds = filesIdsTemp
+
+    process.once('SIGINT', async () => {
+      process.on('SIGINT', () => {})
+      await delAIObjects({ vectorStoreId, filesIds })
+      console.log(
+        'Control + C signal received, deleting AI objects and exiting...',
+      )
+      process.exit(130)
+    })
 
     const { finalScorePath, additionalMetadataPath } = generalPaths({
       directory: currentDirectory,

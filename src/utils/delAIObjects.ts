@@ -10,9 +10,19 @@ export async function delAIObjects({
   const openai = new OpenAI()
 
   for (const fileId of filesIds) {
-    await openai.files.delete(fileId)
+    try {
+      await openai.files.delete(fileId)
+      console.log(`File ${fileId} deleted`)
+    } catch (error) {
+      console.error(`Error deleting file ${fileId}`)
+    }
   }
   if (vectorStoreId) {
-    await openai.vectorStores.delete(vectorStoreId)
+    try {
+      await openai.vectorStores.delete(vectorStoreId)
+      console.log(`Vector store ${vectorStoreId} deleted`)
+    } catch (error) {
+      console.error(`Error deleting vector store ${vectorStoreId}`)
+    }
   }
 }
