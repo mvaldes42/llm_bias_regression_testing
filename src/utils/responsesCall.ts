@@ -1,5 +1,5 @@
 import OpenAI from 'openai'
-import { RAG_FILE_MARKER, ResponsesCallResult } from '../types.ts'
+import { ResponsesCallResult } from '../types.ts'
 
 export function createOpenAIClient(): OpenAI {
   return new OpenAI()
@@ -17,15 +17,11 @@ function parseFileSearch({
     return null
   }
 
-  const files = (call.results ?? []).map((result) => result.filename ?? '')
-  return files.length > 0 ? files : null
+  return (call.results ?? []).map((result) => result.filename ?? '')
 }
 
 export function measuresRag({ files }: { files: string[] | null }): boolean {
-  if (!files) {
-    return false
-  }
-  return files.some((file) => file.toLowerCase().includes(RAG_FILE_MARKER))
+  return files !== null
 }
 
 export async function responsesCall({
@@ -74,9 +70,6 @@ export async function responsesCall({
   }
 
   const files = parseFileSearch({ response })
-  if (files) {
-    console.log('fileSearchFiles: ', files)
-  }
 
   const text = response.output_text?.trim()
   if (!text) {

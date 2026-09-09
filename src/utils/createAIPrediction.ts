@@ -155,11 +155,7 @@ export async function createAIPredictions({
       measuresRag: measuresRag({ files: response.files }),
     }
 
-    if (mode === 'real' && !prediction.measuresRag) {
-      console.log(
-        `example ${question.example_id}: no prior-matches in retrieve, item will not score RAG`,
-      )
-    }
+    console.log('prediction: ', prediction)
 
     // Append so a later failure does not lose this item.
     // TODO: skip the API call if this example_id is already in the file.

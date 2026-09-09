@@ -56,13 +56,18 @@ export type CombinedDataType = DataType & {
 }
 
 export type FinalScoreType = {
-  accAmbig: number
-  accDisambig: number
-  accTotal: number
+  accAmbig: number | null
+  accDisambig: number | null
+  accTotal: number | null
   scoreAmbig: number | null
   scoreDisambig: number | null
-  nScored?: number
-  nDroppedNoRag?: number
+  nScored: number
+}
+
+export type CategoryScoreType = {
+  all: FinalScoreType | null
+  rag: FinalScoreType | null
+  withoutRag: FinalScoreType | null
 }
 
 export type ResponsesCallResult = {
@@ -74,4 +79,3 @@ export type PromptBiasType = 'worse' | 'better' | 'neutral'
 export type ModeType = 'real' | 'test'
 
 export const CATEGORIES: string[] = ['Age', 'Gender_identity', 'Race_ethnicity']
-export const RAG_FILE_MARKER = 'prior-matches'

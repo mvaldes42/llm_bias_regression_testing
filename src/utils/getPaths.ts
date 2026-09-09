@@ -1,4 +1,5 @@
 import path from 'path'
+import { ModeType } from '../types.ts'
 
 export function generalPaths({
   directory,
@@ -23,15 +24,20 @@ export function getCategoryPaths({
   category,
   directory,
   outputDir,
+  mode,
 }: {
   category: string
   directory: string
   outputDir: string
+  mode?: ModeType
 }) {
-  // todo: link to data/categories when not in test mode
+  const dataFile =
+    mode === 'real' && category === 'Gender_identity'
+      ? 'Gender_identity_recruiting.jsonl'
+      : `${category}.jsonl`
   const currentCategoryDataPath = path.join(
     directory,
-    `../data/test/${category}.jsonl`,
+    `../data/test/${dataFile}`,
   )
   const combinedDataPath = path.join(
     directory,

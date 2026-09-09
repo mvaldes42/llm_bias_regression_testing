@@ -6,6 +6,7 @@ import { calculateBiasScore } from '../scripts/calculateBiasScore.ts'
 import {
   AdditionalMetadataType,
   CATEGORIES,
+  CategoryScoreType,
   CombinedDataType,
   DataType,
   FinalScoreType,
@@ -19,6 +20,32 @@ import { delAIObjects } from './utils/delAIObjects.ts'
 import { getAIInputs } from './utils/getAIInputs.ts'
 import { generalPaths, getCategoryPaths } from './utils/getPaths.ts'
 
+function scoreCombinedData({
+  combinedData,
+}: {
+  combinedData: CombinedDataType[]
+}): FinalScoreType | null {
+  if (combinedData.length === 0) {
+    console.error('No combined data to score')
+    return null
+  }
+  const { accAmbig, accDisambig, accTotal } = calculateAccuracyScore({
+    combinedData,
+  })
+  const { scoreDisambig, scoreAmbig } = calculateBiasScore({
+    combinedData,
+    accAmbig,
+  })
+  return {
+    accAmbig,
+    accDisambig,
+    accTotal,
+    scoreDisambig,
+    scoreAmbig,
+    nScored: combinedData.length,
+  }
+}
+
 export async function testingScript({
   fromFile,
   mode,
@@ -29,7 +56,7 @@ export async function testingScript({
   promptBias: PromptBiasType
 }) {
   const currentDirectory = import.meta.dirname
-  const finalScores: Record<string, FinalScoreType> = {}
+  const finalScores: Record<string, CategoryScoreType> = {}
   const outputDir =
     mode === 'real' ? `talentlens_${promptBias}` : `test_${promptBias}`
   let vectorStoreId: string | null = null
@@ -75,13 +102,14 @@ export async function testingScript({
           category: currentCategory,
           directory: currentDirectory,
           outputDir,
+          mode,
         })
 
       const metadata = additionalMetadataData.filter(
         (metadata) => metadata.category === currentCategory,
       )
       if (!metadata) {
-        console.log(`No metadata found for the category ${currentCategory}`)
+        console.error(`No metadata found for the category ${currentCategory}`)
         continue
       }
 
@@ -125,7 +153,7 @@ export async function testingScript({
             (a, b) => parseInt(a.exampleId) - parseInt(b.exampleId),
           )
         } else {
-          console.log('No predictions found for the category')
+          console.error('No predictions found for the category')
           continue
         }
 
@@ -173,41 +201,21 @@ export async function testingScript({
 
       //// Score calculations ////
 
-      const scoredData =
-        mode === 'real'
-          ? combinedData.filter((d) => d.prediction?.measuresRag)
-          : combinedData
-
-      const nDroppedNoRag = combinedData.length - scoredData.length
-      if (mode === 'real') {
-        console.log(
-          `${currentCategory}: ${scoredData.length}/${combinedData.length} items retrieved prior-matches; dropping ${nDroppedNoRag} from RAG scores`,
-        )
+      const ragData = combinedData.filter((d) => d.prediction?.measuresRag)
+      const withoutRagData = combinedData.filter(
+        (d) => !d.prediction?.measuresRag,
+      )
+      const currentScore: CategoryScoreType = {
+        all: scoreCombinedData({ combinedData }),
+        rag: scoreCombinedData({ combinedData: ragData }),
+        withoutRag: scoreCombinedData({ combinedData: withoutRagData }),
       }
 
-      if (scoredData.length === 0) {
-        console.log(`No scorable items for ${currentCategory}`)
-        continue
-      }
+      console.log(
+        `${currentCategory}: all=${combinedData.length} rag=${ragData.length} withoutRag=${withoutRagData.length}`,
+      )
 
-      const { accAmbig, accDisambig, accTotal } = calculateAccuracyScore({
-        combinedData: scoredData,
-      })
-      const { scoreDisambig, scoreAmbig } = calculateBiasScore({
-        combinedData: scoredData,
-        accAmbig,
-      })
-      const currentScore: FinalScoreType = {
-        accAmbig,
-        accDisambig,
-        accTotal,
-        scoreDisambig,
-        scoreAmbig,
-        nScored: scoredData.length,
-        nDroppedNoRag,
-      }
-
-      console.log(currentScore)
+      console.log('currentScore: ', currentScore)
       finalScores[currentCategory] = currentScore
     }
 

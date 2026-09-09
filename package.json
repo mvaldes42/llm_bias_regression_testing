@@ -7,6 +7,7 @@
     "test:worse": "MODE=test PROMPT_BIAS=worse node --import tsx --env-file=.env src/main.ts",
     "test:better": "MODE=test PROMPT_BIAS=better node --import tsx --env-file=.env src/main.ts",
     "main": "MODE=real PROMPT_BIAS=neutral node --import tsx --env-file=.env src/main.ts",
+    "main:file": "MODE=real PROMPT_BIAS=neutral FROM_FILE=true node --import tsx --env-file=.env src/main.ts",
     "main:worse": "MODE=real PROMPT_BIAS=worse node --import tsx --env-file=.env src/main.ts",
     "main:better": "MODE=real PROMPT_BIAS=better node --import tsx --env-file=.env src/main.ts"
   },
