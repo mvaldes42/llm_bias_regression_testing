@@ -104,6 +104,7 @@ export async function testingScript({
           predictionsPath,
           instructions,
           vectorStoreId,
+          mode,
         })
 
         console.log(`Predictions of ${currentCategory} created.`)
