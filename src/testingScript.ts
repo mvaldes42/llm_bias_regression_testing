@@ -173,11 +173,28 @@ export async function testingScript({
 
       //// Score calculations ////
 
+      const scoredData =
+        mode === 'real'
+          ? combinedData.filter((d) => d.prediction?.measuresRag)
+          : combinedData
+
+      const nDroppedNoRag = combinedData.length - scoredData.length
+      if (mode === 'real') {
+        console.log(
+          `${currentCategory}: ${scoredData.length}/${combinedData.length} items retrieved prior-matches; dropping ${nDroppedNoRag} from RAG scores`,
+        )
+      }
+
+      if (scoredData.length === 0) {
+        console.log(`No scorable items for ${currentCategory}`)
+        continue
+      }
+
       const { accAmbig, accDisambig, accTotal } = calculateAccuracyScore({
-        combinedData,
+        combinedData: scoredData,
       })
       const { scoreDisambig, scoreAmbig } = calculateBiasScore({
-        combinedData,
+        combinedData: scoredData,
         accAmbig,
       })
       const currentScore: FinalScoreType = {
@@ -186,6 +203,8 @@ export async function testingScript({
         accTotal,
         scoreDisambig,
         scoreAmbig,
+        nScored: scoredData.length,
+        nDroppedNoRag,
       }
 
       console.log(currentScore)

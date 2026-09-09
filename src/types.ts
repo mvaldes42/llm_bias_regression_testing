@@ -29,6 +29,7 @@ export type PredictionType = {
   contextCondition: string
   answer: string
   value: number
+  measuresRag?: boolean
 }
 
 // "category","question_index","example_id","target_loc","label_type","Known_stereotyped_race","Known_stereotyped_var2","Relevant_social_values","corr_ans_aligns_var2","corr_ans_aligns_race","full_cond","Known_stereotyped_groups"
@@ -60,9 +61,17 @@ export type FinalScoreType = {
   accTotal: number
   scoreAmbig: number | null
   scoreDisambig: number | null
+  nScored?: number
+  nDroppedNoRag?: number
+}
+
+export type ResponsesCallResult = {
+  text: string
+  files: string[] | null
 }
 
 export type PromptBiasType = 'worse' | 'better' | 'neutral'
 export type ModeType = 'real' | 'test'
 
 export const CATEGORIES: string[] = ['Age', 'Gender_identity', 'Race_ethnicity']
+export const RAG_FILE_MARKER = 'prior-matches'
