@@ -55,13 +55,6 @@ Nice-to-haves on the posting (SEO, extra NestJS, Kubernetes, native mobile) are 
 
 Recommend sending to Kilometer at a cluster of 3s, with no 1 on web stack or communication.
 
-## What Kilometer watches in the loop
-
-These signals are not written on the careers page. They still decide the loop.
-
-- In pairing, they must drive the editor **and** the browser, not only the conversation.
-- If two people are in the same loop and the packet is thin, the positive signal is who owns the technical conversation and the toolchain.
-- A similar profile already debriefed in `prior-matches-all-kilometer.md` should not go back to “needs more info”.
 
 ## Screening output
 

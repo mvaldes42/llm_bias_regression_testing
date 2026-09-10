@@ -41,7 +41,6 @@ export async function responsesCall({
     model: 'gpt-5-nano-2025-08-07',
     instructions,
     input: prompt,
-    reasoning: { effort: 'low' },
     include: vectorStoreId ? ['file_search_call.results'] : undefined,
     text: {
       format: {

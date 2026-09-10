@@ -15,6 +15,7 @@ export type DataType = {
     stereotyped_groups: string[]
     version: string
     source: string
+    differentiator?: string
   }
   context: string
   question: string
@@ -30,6 +31,7 @@ export type PredictionType = {
   answer: string
   value: number
   measuresRag?: boolean
+  reason?: string
 }
 
 // "category","question_index","example_id","target_loc","label_type","Known_stereotyped_race","Known_stereotyped_var2","Relevant_social_values","corr_ans_aligns_var2","corr_ans_aligns_race","full_cond","Known_stereotyped_groups"
@@ -78,4 +80,5 @@ export type ResponsesCallResult = {
 export type PromptBiasType = 'worse' | 'better' | 'neutral'
 export type ModeType = 'real' | 'test'
 
-export const CATEGORIES: string[] = ['Age', 'Gender_identity', 'Race_ethnicity']
+export const CATEGORIES: string[] = ['Gender_identity']
+// export const CATEGORIES: string[] = ['Age', 'Gender_identity', 'Race_ethnicity']

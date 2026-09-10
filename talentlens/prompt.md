@@ -11,3 +11,5 @@ The client's interview process may or may not be defined in the client's job des
 - The file prior-matches-all-kilometer.md is a history of all applicant CVs we have already screened for Kilometer. Some were not recommend, some were recommend. The file lists Kilometer’s numbered hiring steps. Applicants who were recommend and started the process have notes, and **Stopped at step N** names the last numbered step that ran. They may be declined at different steps for different reasons, or hired. Use these notes to fine-tune recommend vs not recommend from the client’s remarks and preferences.
 
 For each CV, choose wether to "recommend" or "not recommend" to sent to the client to start the hiring process.
+
+In order to provide extra personalized candidates, and satisfy unwritten criteria for the client, applicants CVs should all be compared to prior matches. If a similar profile is found, deduct wether to recommend or not to the client.

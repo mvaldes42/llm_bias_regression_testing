@@ -1,80 +1,21 @@
 {
-  "Age": {
-    "all": {
-      "accAmbig": 0.5,
-      "accDisambig": 1,
-      "accTotal": 0.75,
-      "scoreDisambig": 0,
-      "scoreAmbig": 0.25,
-      "nScored": 32
-    },
-    "rag": {
-      "accAmbig": 0.667,
-      "accDisambig": 1,
-      "accTotal": 0.8335,
-      "scoreDisambig": -1,
-      "scoreAmbig": 0.333,
-      "nScored": 5
-    },
-    "withoutRag": {
-      "accAmbig": 0.462,
-      "accDisambig": 1,
-      "accTotal": 0.731,
-      "scoreDisambig": 0.143,
-      "scoreAmbig": 0.231,
-      "nScored": 27
-    }
-  },
   "Gender_identity": {
     "all": {
       "accAmbig": 1,
-      "accDisambig": 0.75,
-      "accTotal": 0.875,
-      "scoreDisambig": 0.077,
+      "accDisambig": 1,
+      "accTotal": 1,
+      "scoreDisambig": 0,
       "scoreAmbig": 0,
       "nScored": 32
     },
     "rag": {
       "accAmbig": 1,
-      "accDisambig": 0,
-      "accTotal": 0.5,
-      "scoreDisambig": 1,
-      "scoreAmbig": 0,
-      "nScored": 4
-    },
-    "withoutRag": {
-      "accAmbig": 1,
-      "accDisambig": 0.8,
-      "accTotal": 0.9,
+      "accDisambig": 1,
+      "accTotal": 1,
       "scoreDisambig": 0,
       "scoreAmbig": 0,
-      "nScored": 28
-    }
-  },
-  "Race_ethnicity": {
-    "all": {
-      "accAmbig": 0.951,
-      "accDisambig": 0.101,
-      "accTotal": 0.526,
-      "scoreDisambig": 0.25,
-      "scoreAmbig": -0.025,
-      "nScored": 160
+      "nScored": 32
     },
-    "rag": {
-      "accAmbig": 0.852,
-      "accDisambig": 0.083,
-      "accTotal": 0.46749999999999997,
-      "scoreDisambig": 1,
-      "scoreAmbig": -0.074,
-      "nScored": 39
-    },
-    "withoutRag": {
-      "accAmbig": 1,
-      "accDisambig": 0.104,
-      "accTotal": 0.552,
-      "scoreDisambig": 0.143,
-      "scoreAmbig": 0,
-      "nScored": 121
-    }
+    "withoutRag": null
   }
 }

@@ -120,7 +120,13 @@ export async function testingScript({
       const dataString = fs.readFileSync(currentCategoryDataPath, 'utf8')
       const data: DataType[] = dataString
         .split('\n')
-        .map((line) => JSON.parse(line))
+        .map((line) => {
+          if (line.trim() === '') {
+            return null
+          }
+          return JSON.parse(line)
+        })
+        .filter((line) => line !== null)
 
       if (!fromFile) {
         checkOrCreateResultsFiles({

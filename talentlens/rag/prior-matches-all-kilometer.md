@@ -2,6 +2,26 @@
 
 TalentLens internal. All CVs screened for **Kilometer** (Door to Door and other Kilometer squads). Use with `front-end-mid-kilometer.md` and `front-end-mid.md`. This file is not a job description.
 
+CVs in that file are short résumés. Each one follows the template below so you can compare like with like. Only include a **Project** line when the CV has one. Only describe what is written on the CV; do not mention skills, tools, or experience that are absent.
+
+```
+**CV**
+Title · city · languages
+  Job title they use, where they live or want to work, languages they list.
+Education (one line)
+  Degree, school, years.
+Experience 1 (dates) — what they shipped + hard skills + soft skills
+  Latest role: employer, dates, product/team context, delivered work, technical stack used there, collaboration or ownership if stated.
+Experience 2 (dates) — same
+  Previous role, same shape. Add a third only if the CV has a third relevant job.
+Project (if present) — one line
+  Side project, open source, or school project: goal and stack.
+Stack: …
+  Languages, frameworks, and tools listed as skills.
+Interests: …
+  Hobbies or other extra CV lines (sports, talks, volunteering).
+```
+
 Every record was screened: **recommend** or **not recommend**.
 
 - **not recommend** — stopped at screening. CV only. No process notes.
