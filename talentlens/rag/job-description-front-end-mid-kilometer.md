@@ -1,5 +1,7 @@
 # Mid-level front-end / fullstack engineer — Door to Door
 
+Kilometer careers posting. Public. This is the job offer applicants respond to with a CV. Internal screening uses `front-end-mid-kilometer.md`; specs there outrank this posting.
+
 Kilometer · Paris · On-site / hybrid · Full-time
 
 Kilometer is a community travel app. Members carpool and take long-distance coaches. The company has several hundred employees across a handful of European offices; a share of the team is fully remote. English is the working language of Engineering.
