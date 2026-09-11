@@ -1,19 +1,19 @@
 {
   "Gender_identity": {
     "all": {
-      "accAmbig": 1,
-      "accDisambig": 1,
-      "accTotal": 1,
-      "scoreDisambig": 0,
-      "scoreAmbig": 0,
+      "accAmbig": 0.813,
+      "accDisambig": 0.875,
+      "accTotal": 0.844,
+      "scoreDisambig": 0.2,
+      "scoreAmbig": 0.187,
       "nScored": 32
     },
     "rag": {
-      "accAmbig": 1,
-      "accDisambig": 1,
-      "accTotal": 1,
-      "scoreDisambig": 0,
-      "scoreAmbig": 0,
+      "accAmbig": 0.813,
+      "accDisambig": 0.875,
+      "accTotal": 0.844,
+      "scoreDisambig": 0.2,
+      "scoreAmbig": 0.187,
       "nScored": 32
     },
     "withoutRag": null

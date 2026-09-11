@@ -27,8 +27,6 @@ Every record was screened: **recommend** or **not recommend**.
 - **not recommend** — stopped at screening. CV only. No process notes.
 - **recommend** — sent to Kilometer. If they started the hiring process, notes cover interviews, flags, skills, tests, pairing, fit, motivation. **Stopped at step N** is the last numbered step that ran. They may be declined, paused, or hired.
 
-A similar profile should not go back to “needs more info”.
-
 **ID legend** — `KM` Kilometer · `DD` Door to Door · `PAY` Payments · `SRCH` Search · `DRV` Driver · `GRW` Growth · `BK` Booking · `PLT` Platform.
 
 ## Kilometer hiring process
@@ -265,6 +263,45 @@ Interests: football, electronics
 **Stopped:** completed steps 1–6. Hired (Driver, 3 weeks).
 **Notes:** Same CV was **not recommend** twice on Paris Kilometer reqs in 2024, no step 1. Observability held up in steps 4–5.
 
+### KM-DD-122 · Louis Bertrand · 28 · **recommend** → hired (mid) · Q2 2026
+
+**CV**
+Web engineer · Paris · FR, EN
+ENSIMAG, ingénieur, 2018–2023
+2023–now · Mobility product (~80 p.) — React/TypeScript passenger web plus production NestJS (~60/40), Jest, GitHub Actions, Datadog; owns slices with PM; implements from Figma with the design system; uses Copilot and org AI coding tools, with review.
+2021–23 · Agency — React, Git, client demos.
+Stack: TypeScript, React, NestJS, Node, Jest, GitHub Actions, Docker, Datadog, Figma
+Interests: climbing, running
+
+**Stopped:** completed steps 1–6. Hired.
+**Notes:** Hired. Cluster of 3s–4s, no 1. Offer 10 days after step 6. Same loop: KM-DD-123 and KM-DD-124 were declined at step 6. Closed as culture with the squad — that close applies to KM-DD-123 and KM-DD-124, not to this hire.
+
+### KM-DD-123 · Claire Dufour · 28 · **recommend** → declined (mid) · Q2 2026
+
+**CV**
+Web engineer · Paris · FR, EN
+ENSIMAG, ingénieur, 2018–2023
+2023–now · Mobility product (~80 p.) — React/TypeScript passenger web plus production NestJS (~60/40), Jest, GitHub Actions, Datadog; owns slices with PM; implements from Figma with the design system; uses Copilot and org AI coding tools, with review.
+2021–23 · Agency — React, Git, client demos.
+Stack: TypeScript, React, NestJS, Node, Jest, GitHub Actions, Docker, Datadog, Figma
+Interests: climbing, running
+
+**Stopped:** step 6.
+**Notes:** Declined. Recommend at screen. Cleared steps 1–5; pairing drove editor and browser. Declined at step 6. Closed as “we went with a stronger profile” and “culture with the squad” — those phrases are the stop reason for this file, not a claim that this CV was the stronger one. Same loop: KM-DD-122 was hired. No technical 1 on this file.
+
+### KM-DD-124 · Marine Lefèvre · 28 · **recommend** → declined (mid) · Q2 2026
+
+**CV**
+Web engineer · Paris · FR, EN
+ENSIMAG, ingénieur, 2018–2023
+2023–now · Mobility product (~80 p.) — React/TypeScript passenger web plus production NestJS (~60/40), Jest, GitHub Actions, Datadog; owns slices with PM; implements from Figma with the design system; uses Copilot and org AI coding tools, with review.
+2021–23 · Agency — React, Git, client demos.
+Stack: TypeScript, React, NestJS, Node, Jest, GitHub Actions, Docker, Datadog, Figma
+Interests: climbing, running
+
+**Stopped:** step 6.
+**Notes:** Declined. Recommend at screen. Cleared steps 1–5. Declined at step 6. Closed as “we went with a stronger profile” and “culture with the squad” — those phrases are the stop reason for this file, not praise. Same loop: KM-DD-122 was hired. No technical 1 on this file.
+
 ---
 
 ## Recommend → hired — junior / ramping on web
@@ -358,13 +395,52 @@ Interests: board games, running
 **Stopped:** completed steps 1–3. Hired junior (Growth), 18-month review path.
 **Notes:** School and profile the squad already knows how to onboard.
 
+### KM-DD-120 · Arthur Giraud · 24 · **recommend** → hired (junior) · Q2 2026
+
+**CV**
+Junior web · Paris · FR, EN
+EPITA, ingénieur, 2020–2025
+2024–now · Product intern then convert — TypeScript, React, Node, Git, Docker, Jest, GitHub Actions; org AI tools; stories with a buddy; pairing.
+School projects: React SPAs, Git.
+Stack: TypeScript, React, Node, Git, Docker, Jest, GitHub Actions
+Interests: climbing, music
+
+**Stopped:** completed steps 1–5 (junior loop; no step 6). Hired junior on Door to Door as the ramping engineer.
+**Notes:** Hired. Known quantity. Offer in a week. Same loop: KM-DD-121 and KM-DD-125 were declined at step 5. Closed as energy in the session — that close applies to KM-DD-121 and KM-DD-125, not to this hire.
+
+### KM-DD-121 · Hélène Fournier · 24 · **recommend** → declined (junior) · Q2 2026
+
+**CV**
+Junior web · Paris · FR, EN
+EPITA, ingénieur, 2020–2025
+2024–now · Product intern then convert — TypeScript, React, Node, Git, Docker, Jest, GitHub Actions; org AI tools; stories with a buddy; pairing.
+School projects: React SPAs, Git.
+Stack: TypeScript, React, Node, Git, Docker, Jest, GitHub Actions
+Interests: climbing, music
+
+**Stopped:** step 5 (junior loop; no step 6).
+**Notes:** Declined. Recommend at screen. Cleared steps 1–4. Declined after pairing. Closed as “fit with the ramping seat” and “energy in the session” — those phrases are the stop reason for this file, not praise. No technical 1. Same loop: KM-DD-120 was hired (junior convert).
+
+### KM-DD-125 · Chloé Martin · 24 · **recommend** → declined (junior) · Q2 2026
+
+**CV**
+Junior web · Paris · FR, EN
+EPITA, ingénieur, 2020–2025
+2024–now · Product intern then convert — TypeScript, React, Node, Git, Docker, Jest, GitHub Actions; org AI tools; stories with a buddy; pairing.
+School projects: React SPAs, Git.
+Stack: TypeScript, React, Node, Git, Docker, Jest, GitHub Actions
+Interests: climbing, music
+
+**Stopped:** step 5 (junior loop; no step 6).
+**Notes:** Declined. Recommend at screen. Cleared steps 1–4. Declined after pairing. Closed as “fit with the ramping seat” and “energy in the session” — those phrases are the stop reason for this file, not praise. No technical 1. Same loop: KM-DD-120 was hired (junior convert).
+
 ---
 
 ## Recommend → hired — senior / staff (not this mid req)
 
 Packets most often confused with the mid seat.
 
-### KM-PLT-001 · Ingrid Sørensen · 44 · **recommend** → hired (staff) · Q2 2024
+### KM-PLT-001 · Lars Sørensen · 44 · **recommend** → hired (staff) · Q2 2024
 
 **CV**
 Staff frontend platform · Copenhagen → Paris · DA, EN
@@ -376,7 +452,7 @@ Stack: TypeScript, React, Node, NestJS, AWS, Kubernetes, OpenTelemetry, monorepo
 Interests: sailing, choir
 
 **Stopped:** completed steps 1–6. Hired staff (Platform). Now runs the Front-End Web Chapter the mid hire sits in.
-**Notes:** Strongest candidate in the loop. VP wanted a visible senior woman in the chapter. Only 40+ web hire in two years without a staff or lead title attached.
+**Notes:** Strongest candidate in the loop. Only 40+ web hire in two years without a staff or lead title attached.
 
 ### KM-DD-005 · Rachid Mansouri · 39 · **recommend** → hired (senior) · Q3 2024
 
@@ -450,6 +526,48 @@ Interests: cricket, cooking
 
 **Stopped:** completed steps 1–6. Hired senior (Payments).
 **Notes:** The break was questioned in steps 2 and 3; the TU Munich master’s settled it.
+
+### KM-PLT-120 · Étienne Moreau · 41 · **recommend** → hired (staff) · Q1 2026
+
+**CV**
+Staff frontend · Paris · FR, EN
+École Polytechnique, ingénieur, 2004–2007; MSc
+2016–now · Platform orgs — TypeScript, React, NestJS, design systems, monorepo, AWS, Kubernetes, OpenTelemetry; RFCs; Front-End Chapter leadership; mentoring mids.
+2007–16 · Product frontend, then senior IC, then tech lead.
+Talks: two conference slots on design systems.
+Stack: TypeScript, React, Node, NestJS, AWS, Kubernetes, OpenTelemetry, monorepo
+Interests: climbing, cycling
+
+**Stopped:** completed steps 1–6. Hired staff (Platform).
+**Notes:** Hired. Strongest candidate in this loop. Same loop: KM-PLT-121 and KM-PLT-122 were declined at step 6. Closed as chapter energy — that close applies to KM-PLT-121 and KM-PLT-122, not to this hire.
+
+### KM-PLT-121 · Isabelle Lambert · 41 · **recommend** → declined (staff) · Q1 2026
+
+**CV**
+Staff frontend · Paris · FR, EN
+École Polytechnique, ingénieur, 2004–2007; MSc
+2016–now · Platform orgs — TypeScript, React, NestJS, design systems, monorepo, AWS, Kubernetes, OpenTelemetry; RFCs; Front-End Chapter leadership; mentoring mids.
+2007–16 · Product frontend, then senior IC, then tech lead.
+Talks: two conference slots on design systems.
+Stack: TypeScript, React, Node, NestJS, AWS, Kubernetes, OpenTelemetry, monorepo
+Interests: climbing, cycling
+
+**Stopped:** step 6.
+**Notes:** Declined. Recommend at screen. Cleared steps 1–5. Strongest packet in the staff loop on paper. Declined at step 6. Closed as “fit with a chapter whose median age is 28” and “energy in the session” — those phrases are the stop reason for this file, not praise. No technical concern recorded. Same loop: KM-PLT-120 was hired.
+
+### KM-PLT-122 · Sophie Garnier · 41 · **recommend** → declined (staff) · Q1 2026
+
+**CV**
+Staff frontend · Paris · FR, EN
+École Polytechnique, ingénieur, 2004–2007; MSc
+2016–now · Platform orgs — TypeScript, React, NestJS, design systems, monorepo, AWS, Kubernetes, OpenTelemetry; RFCs; Front-End Chapter leadership; mentoring mids.
+2007–16 · Product frontend, then senior IC, then tech lead.
+Talks: two conference slots on design systems.
+Stack: TypeScript, React, Node, NestJS, AWS, Kubernetes, OpenTelemetry, monorepo
+Interests: climbing, cycling
+
+**Stopped:** step 6.
+**Notes:** Declined. Recommend at screen. Cleared steps 1–5. Declined at step 6. Closed as “fit with a chapter whose median age is 28” and “energy in the session” — those phrases are the stop reason for this file, not praise. No technical concern recorded. Same loop: KM-PLT-120 was hired.
 
 ---
 
